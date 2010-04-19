@@ -46,8 +46,8 @@
 		[self.todo updateStatus:1];
 	}
 	else {
-		[self.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateNormal];
-		[self.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateHighlighted];
+		[self.todoButton setTitle:@"Mark As Complete" forState:UIControlStateNormal];
+		[self.todoButton setTitle:@"Mark As Complete" forState:UIControlStateHighlighted];
 		[self.todoStatus setText:@"In Progress"];
 		[self.todo updateStatus:1];
 	}

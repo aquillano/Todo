@@ -145,8 +145,8 @@
 		[self.todoView.todoStatus setText:@"Complete"];
 	}
 	else {
-		[self.todoView.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateNormal];
-		[self.todoView.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateHighlighted];
+		[self.todoView.todoButton setTitle:@"Mark As Complete" forState:UIControlStateNormal];
+		[self.todoView.todoButton setTitle:@"Mark As Complete" forState:UIControlStateHighlighted];
 		[self.todoView.todoStatus setText:@"In Progress"];
 	}
 }
