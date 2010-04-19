@@ -43,7 +43,7 @@
 					<object class="IBUITextView" id="101773115">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{48, 42}, {220, 160}}</string>
+						<string key="NSFrame">{{37, 42}, {245, 135}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -60,7 +60,7 @@
 					<object class="IBUISegmentedControl" id="496502924">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 332}, {207, 44}}</string>
+						<string key="NSFrame">{{37, 289}, {245, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -100,12 +100,12 @@
 					<object class="IBUILabel" id="133076505">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 303}, {53, 21}}</string>
+						<string key="NSFrame">{{25, 260}, {58, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Priority</string>
+						<string key="IBUIText">Priority:</string>
 						<object class="NSColor" key="IBUITextColor" id="320546505">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -117,7 +117,7 @@
 					<object class="IBUIButton" id="1056274663">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 403}, {207, 37}}</string>
+						<string key="NSFrame">{{37, 348}, {245, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -146,12 +146,12 @@
 					<object class="IBUILabel" id="606015035">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 224}, {49, 21}}</string>
+						<string key="NSFrame">{{25, 194}, {53, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Status</string>
+						<string key="IBUIText">Status:</string>
 						<reference key="IBUITextColor" ref="320546505"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -160,7 +160,7 @@
 					<object class="IBUILabel" id="163125942">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 253}, {42, 21}}</string>
+						<string key="NSFrame">{{37, 223}, {245, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -174,12 +174,12 @@
 					<object class="IBUILabel" id="675715780">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 20}, {42, 21}}</string>
+						<string key="NSFrame">{{25, 20}, {42, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Text</string>
+						<string key="IBUIText">Text:</string>
 						<reference key="IBUITextColor" ref="320546505"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -270,10 +270,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1056274663"/>
 							<reference ref="496502924"/>
-							<reference ref="133076505"/>
-							<reference ref="675715780"/>
 							<reference ref="101773115"/>
+							<reference ref="133076505"/>
 							<reference ref="606015035"/>
+							<reference ref="675715780"/>
 							<reference ref="163125942"/>
 						</object>
 						<reference key="parent" ref="0"/>
