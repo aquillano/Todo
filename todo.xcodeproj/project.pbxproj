@@ -18,6 +18,8 @@
 		AA100BCD116E2E0700A64159 /* todo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AA100BCC116E2E0700A64159 /* todo.sqlite */; };
 		AA100BD0116E2E6400A64159 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA100BCF116E2E6400A64159 /* libsqlite3.0.dylib */; };
 		AA100BD3116E2EBD00A64159 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = AA100BD2116E2EBD00A64159 /* Todo.m */; };
+		AA5F3C17117C170600D07473 /* TodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5F3C16117C170600D07473 /* TodoViewController.xib */; };
+		AA5F3C21117C20C800D07473 /* TodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5F3C20117C20C800D07473 /* TodoViewController.m */; };
 		AACEDB1F116F01AA0066FF14 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AACEDB1E116F01AA0066FF14 /* TodoCell.m */; };
 		AACEDB9D116F7F290066FF14 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = AACEDB9A116F7F290066FF14 /* green.png */; };
 		AACEDB9E116F7F290066FF14 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = AACEDB9B116F7F290066FF14 /* red.png */; };
@@ -42,6 +44,9 @@
 		AA100BCF116E2E6400A64159 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		AA100BD1116E2EBD00A64159 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		AA100BD2116E2EBD00A64159 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		AA5F3C16117C170600D07473 /* TodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TodoViewController.xib; path = ../todo/TodoViewController.xib; sourceTree = SOURCE_ROOT; };
+		AA5F3C1F117C20C800D07473 /* TodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodoViewController.h; path = ../TodoViewController.h; sourceTree = "<group>"; };
+		AA5F3C20117C20C800D07473 /* TodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodoViewController.m; path = ../TodoViewController.m; sourceTree = "<group>"; };
 		AACEDB1D116F01AA0066FF14 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
 		AACEDB1E116F01AA0066FF14 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
 		AACEDB9A116F7F290066FF14 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
@@ -69,6 +74,8 @@
 			children = (
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				AA5F3C1F117C20C800D07473 /* TodoViewController.h */,
+				AA5F3C20117C20C800D07473 /* TodoViewController.m */,
 				1D3623240D0F684500981E51 /* todoAppDelegate.h */,
 				1D3623250D0F684500981E51 /* todoAppDelegate.m */,
 				AA100BD1116E2EBD00A64159 /* Todo.h */,
@@ -114,6 +121,7 @@
 				AACEDB12116EFEEC0066FF14 /* Images */,
 				AA100BCC116E2E0700A64159 /* todo.sqlite */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				AA5F3C16117C170600D07473 /* TodoViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* todo-Info.plist */,
 			);
@@ -196,6 +204,7 @@
 				AACEDB9D116F7F290066FF14 /* green.png in Resources */,
 				AACEDB9E116F7F290066FF14 /* red.png in Resources */,
 				AACEDB9F116F7F290066FF14 /* yellow.png in Resources */,
+				AA5F3C17117C170600D07473 /* TodoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +220,7 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				AA100BD3116E2EBD00A64159 /* Todo.m in Sources */,
 				AACEDB1F116F01AA0066FF14 /* TodoCell.m in Sources */,
+				AA5F3C21117C20C800D07473 /* TodoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

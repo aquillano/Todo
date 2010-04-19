@@ -14,11 +14,13 @@
 
 @implementation RootViewController
 
+@synthesize todoView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[self.tableView reloadData];
+	self.title = @"Todo Items";
+	//[self.tableView reloadData];
 	
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -26,11 +28,12 @@
 }
 
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self.tableView reloadData];
     [super viewWillAppear:animated];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -106,16 +109,47 @@
 
 
 
-/*
 // Override to support row selection in the table view.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Navigation logic may go here -- for example, create and push another view controller.
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController animated:YES];
 	// [anotherViewController release];
+	
+	todoAppDelegate *appDelegate = (todoAppDelegate *)[[UIApplication sharedApplication] delegate];
+	Todo *todo = (Todo *)[appDelegate.todos objectAtIndex:indexPath.row];
+	
+	if (self.todoView == nil) {
+		TodoViewController *viewController = [[TodoViewController alloc] initWithNibName:@"TodoViewController" bundle:[NSBundle mainBundle]];
+		self.todoView = viewController;
+		[viewController release];
+	}
+	
+	[self.navigationController pushViewController:self.todoView animated:YES];
+	self.todoView.todo = todo;
+	self.todoView.title = todo.text;
+	[self.todoView.todoText setText:todo.text];
+	
+	NSInteger priority = todo.priority -1;
+	if (priority > 2 || priority <0) {
+		priority = 1;
+	}
+	priority = 2 - priority;
+	
+	[self.todoView.todoPriority setSelectedSegmentIndex:priority];
+	
+	if (todo.status == 1) {
+		[self.todoView.todoButton setTitle:@"Mark As In Progress" forState:UIControlStateNormal];
+		[self.todoView.todoButton setTitle:@"Mark As In Progress" forState:UIControlStateHighlighted];
+		[self.todoView.todoStatus setText:@"Complete"];
+	}
+	else {
+		[self.todoView.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateNormal];
+		[self.todoView.todoButton setTitle:@"Mark As In Complete" forState:UIControlStateHighlighted];
+		[self.todoView.todoStatus setText:@"In Progress"];
+	}
 }
-*/
 
 
 /*

@@ -50,6 +50,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
+	[todos makeObjectsPerformSelector:@selector(dehydrate)];
 }
 
 
