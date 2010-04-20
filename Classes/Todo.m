@@ -12,6 +12,8 @@
 // This holds the statement for retrieving todo data from the database
 static sqlite3_stmt *init_statement = nil;
 static sqlite3_stmt *dehydrate_statement = nil;
+static sqlite3_stmt *delete_statement = nil;
+static sqlite3_stmt *insert_statement = nil;
 
 @implementation Todo
 
@@ -79,15 +81,16 @@ static sqlite3_stmt *dehydrate_statement = nil;
 {
 	if (dirty) {
 		if (dehydrate_statement == nil) {
-			const char *sql = "UPDATE todo SET priority = ?,complete = ? WHERE pk=?";
+			const char *sql = "UPDATE todo SET text = ?,priority = ?,complete = ? WHERE pk=?";
 			if (sqlite3_prepare_v2(database, sql, -1, &dehydrate_statement, NULL) != SQLITE_OK) {
 				NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(database));
 			}
 		}
 		
-		sqlite3_bind_int(dehydrate_statement, 3, self.primaryKey);
-		sqlite3_bind_int(dehydrate_statement, 2, self.status);
-		sqlite3_bind_int(dehydrate_statement, 1, self.priority);
+		sqlite3_bind_int(dehydrate_statement, 4, self.primaryKey);
+		sqlite3_bind_int(dehydrate_statement, 3, self.status);
+		sqlite3_bind_int(dehydrate_statement, 2, self.priority);
+		sqlite3_bind_text(dehydrate_statement, 1, [self.text UTF8String], -1, SQLITE_TRANSIENT);
 		
 		int success = sqlite3_step(dehydrate_statement);
 		
@@ -98,6 +101,43 @@ static sqlite3_stmt *dehydrate_statement = nil;
 		sqlite3_reset(dehydrate_statement);
 		dirty = NO;
 	}
+}
+
++ (NSInteger)insertNewTodoIntoDatabase:(sqlite3 *)database
+{
+	if (insert_statement == nil) {
+		static char *sql = "INSERT INTO todo (text,priority,complete) VALUES ('New Todo','3','0')";
+		if (sqlite3_prepare_v2(database, sql, -1, &insert_statement, NULL) != SQLITE_OK) {
+			NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(database));
+		}
+	}
+	int success = sqlite3_step(insert_statement);
+	
+	sqlite3_reset(insert_statement);
+	if (success != SQLITE_ERROR) {
+		return sqlite3_last_insert_rowid(database);
+	}
+	NSAssert1(0, @"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(database));
+	return -1;
+}
+
+- (void)deleteFromDatabase
+{
+	if (delete_statement == nil) {
+		const char *sql = "DELETE FROM todo WHERE pk=?";
+		if (sqlite3_prepare_v2(database, sql, -1, &delete_statement, NULL) != SQLITE_OK) {
+			NSAssert1(0, @"Error: failed to prepare statement with the message '%s'.", sqlite3_errmsg(database));
+		}
+	}
+	
+	sqlite3_bind_int(delete_statement, 1, self.primaryKey);
+	int success = sqlite3_step(delete_statement);
+	
+	if (success != SQLITE_DONE) {
+		NSAssert1(0, @"Error: failed to save priority with message '%s'.", sqlite3_errmsg(database));
+	}
+	
+	sqlite3_reset(delete_statement);
 }
 
 @end

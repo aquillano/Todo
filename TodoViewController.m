@@ -59,6 +59,11 @@
 	[self.todo updatePriority:(2-priority+1)];
 }
 
+- (IBAction) updateText:(id)sender
+{
+	self.todo.text = self.todoText.text;
+}
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

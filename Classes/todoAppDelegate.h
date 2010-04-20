@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#import "Todo.h"
 
 @interface todoAppDelegate : NSObject <UIApplicationDelegate> {
     
@@ -22,6 +23,9 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) NSMutableArray *todos;
+
+- (Todo *)addTodo;
+- (void)removeTodo:(Todo *)todo;
 
 @end
 

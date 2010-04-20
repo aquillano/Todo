@@ -20,11 +20,17 @@
     [super viewDidLoad];
 	
 	self.title = @"Todo Items";
-	//[self.tableView reloadData];
 	
+	// Automatically add the "Edit" button to the NavigationController
+	// Also sets up the functionality to allow the "delete" buttons to be
+	// displayed when the button is pressed
+	self.navigationItem.leftBarButtonItem = self.editButtonItem;
+	
+	// This create the right button in the NavigationController programatically
+	// The same can be accomplished in Interface Builder
+	UIBarButtonItem	*btn = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:@selector(addTodo:)];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = btn;
 }
 
 
@@ -161,19 +167,26 @@
 */
 
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+	todoAppDelegate *appDelegate = (todoAppDelegate *)[[UIApplication sharedApplication] delegate];
+	Todo *todo = (Todo *)[appDelegate.todos objectAtIndex:indexPath.row];
+	
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+		[appDelegate removeTodo:todo];
         // Delete the row from the data source.
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+    }
+	
+	/*
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
+    }
+	*/
 }
-*/
+
 
 
 /*
@@ -190,6 +203,25 @@
     return YES;
 }
 */
+
+
+- (void) addTodo:(id)sender
+{
+	todoAppDelegate *appDelegate = (todoAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	if (self.todoView == nil) {
+		TodoViewController *viewController = [[TodoViewController alloc] initWithNibName:@"TodoViewController" bundle:[NSBundle mainBundle]];
+		self.todoView = viewController;
+		[viewController release];
+	}
+	
+	Todo *todo = [appDelegate addTodo];
+	[self.navigationController pushViewController:self.todoView animated:YES];
+	self.todoView.todo = todo;
+	self.todoView.title = todo.text;
+	[self.todoView.todoText setText:todo.text];
+	
+}
 
 
 - (void)dealloc {

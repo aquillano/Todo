@@ -29,5 +29,11 @@
 - (void)updateStatus:(NSInteger) newStatus;
 - (void)updatePriority:(NSInteger) newPriority;
 - (void)dehydrate;
+- (void)deleteFromDatabase;
+
+// '+' indicates a static method
+// Associated with the class, not an instance
+// I can call this method without instantiating this class
++ (NSInteger)insertNewTodoIntoDatabase:(sqlite3 *)database;
 
 @end

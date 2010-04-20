@@ -137,6 +137,28 @@
 }
 
 
+- (Todo *) addTodo
+{
+	NSInteger primaryKey = [Todo insertNewTodoIntoDatabase:database];
+	Todo *newTodo = [[Todo alloc] initWithPrimaryKey:primaryKey database:database];
+	
+	[todos addObject:newTodo];
+	return newTodo;
+}
+
+- (void)removeTodo:(Todo *)todo
+{
+	NSUInteger index = [todos indexOfObject:todo];
+	
+	if (index == NSNotFound) {
+		return;
+	}
+	
+	[todo deleteFromDatabase];
+	[todos removeObject:todo];
+}
+
+
 - (void)dealloc {
 	[navigationController release];
 	[window release];
